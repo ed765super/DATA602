@@ -1,5 +1,6 @@
 # DATA602
-## Data = Players.csv
+## Data = LOL_champions_stats.csv
+   Recieved from Kaggle.com
 ## Project Description:
   The following is exploratory data analysis (EDA) on the best players of Riot Games hit video game League of Legends. This assignment will include:
     
