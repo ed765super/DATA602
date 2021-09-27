@@ -2,7 +2,7 @@
 ## Data = YGO_Cards_v2.csv
    Recieved from Kaggle.com (https://www.kaggle.com/rushikeshhiray/yugioh-normal-monster-cards)
 ## Project Description:
-  The following is exploratory data analysis (EDA) on the best players of Riot Games hit video game League of Legends. This assignment will include:
+  The following is exploratory data analysis (EDA) on the various cards of Konami's hit trading card game League of Legends. This assignment will include:
 You can make a heatmap & correlations.
     
     Output of professional quality where 
