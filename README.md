@@ -7,8 +7,7 @@
    The API used could not correctly scrape cards with & or # in their name. Thus Chris just left them out. Fortunately, this only leaves out around 35 cards. Since there are    nearly 6000 monster entries, this should not have much of an affect on the data overall.
    
 ## Project Description:
-  The following is exploratory data analysis (EDA) on the various cards of Konami's hit trading card game League of Legends. This assignment will include:
-You can make a heatmap & correlations.
+  The following is exploratory data analysis (EDA) on the various cards of Konami's hit trading card game Yu-gi-oh. This assignment will include:
     
     Output of professional quality where 
       Charts properly labeled (axis labels, titles, …)
