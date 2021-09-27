@@ -1,6 +1,11 @@
 # DATA602
 ## Data = YGO_Cards_v2.csv
    Recieved from Kaggle.com (https://www.kaggle.com/rushikeshhiray/yugioh-normal-monster-cards)
+   
+   According to Chris Kirkham, the user on Kaggle who scrapped the data, this data was scrapped using an YGOHub API.
+
+   The API used could not correctly scrape cards with & or # in their name. Thus Chris just left them out. Fortunately, this only leaves out around 35 cards. Since there are    nearly 6000 monster entries, this should not have much of an affect on the data overall.
+   
 ## Project Description:
   The following is exploratory data analysis (EDA) on the various cards of Konami's hit trading card game League of Legends. This assignment will include:
 You can make a heatmap & correlations.
