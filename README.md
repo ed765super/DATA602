@@ -1,4 +1,4 @@
-# DATA602
+# DATA602 Yugioh Regression Analysis
 ## Data = YGO_Cards_v2.csv
    Recieved from Kaggle.com (https://www.kaggle.com/rushikeshhiray/yugioh-normal-monster-cards)
    
@@ -26,22 +26,36 @@ If this is the first match of the duel, the winner of a coin flip or rock-paper-
 Draw 5 cards from the top of the Main Deck and begin.
 Over the years, a whole slew of cards were printed; morphing the metagame into what it is today. Ever since the prining of "Chaos Emperor Dragon - Envoy of the End", Konami has released updates to the ban list as a way to balance their game. However, with the release of the October 2021 banlist, it has become clear to the community that Konami intends to use their banlist more as a way to sell their upcoming products rather than balance their game. As a software developer and yugioh fan, I want to understand what drives attack levels to be as high as they are and determine whether that has any effect on what cards appear on the banlist.
 
+## EDA Findings
+* The "releases" category contained the card's release in every single region. However for the most part, they are all dropped within the same year (give or take a few for the january or december drops).
+* The following columns serve no real purpose regarding my buisness question
+    * Number
+      * has nothing to contribute towards my buisness question
+    * naming_condition
+      * Changing the name on the field has no bearing on the monster's strength
+    * text
+    * pendulumn_text
+  * The following Categorical variables will need dummy variables (one hot encoding):
+    * attribute
+    * Type
+    * monster_types
+    * materials
 
-  The following is exploratory data analysis (EDA) on the various cards of Konami's hit trading card game Yu-gi-oh. This assignment will include:
-    
-    Output of professional quality where 
-      Charts properly labeled (axis labels, titles, …)
-    
-    (70%) Completeness of exploratory analysis
-    
-    (5%) Discussion of business question / objective that is being analyzed
-    
-    (5%) Profiling of data (observations, missing values, data types)
-    
-    (10%) Relevant categorical variables analyzed, and cleaned, if necessary.
-    
-    (10%) Numerical variables analyzed (distributions, five number summary, …)
-    
-    (30%) Exploration of relationships between key categorical and numerical variables
-    
-    (10%) Discussion of what you have observed throughout your analysis
+
+## Regression Results
+The training R^2 was super close to the test R^2 and really high. So much so that I believe it could be sampling error
+
+However, there may be some factor that is leaking into my error term that is causing this pattern:
+* It could be "bad data" caused by the approach i took when filling the NA values. By filling all the empty cells with what I deemed to be an "unattainable stat", I naievely skewed the data which may have caused my regression to quite easily predict one of those unattainable values.
+
+* This could also be due to the monster_types not being seperated out. There's a prominent skew towards effect monsters due to the competative metagame relying on effect monsters. Unfortunately I caunt really account for it without completely reforming my data.
+
+
+## Dataset predictions
+I was able to predict attack values with a r-squared of 99.99998675959489%. I attempted regularization via Ridge, OLS, and Lasso but found no benefit to adding regulariztion to our models.
+
+## Future plans
+The following could be applied in the future
+* Finding a different way to fill my NA values that has less impact on the regression itself.
+* Seperating out the monster_types to distribute the weight of each of the different monster types in a more fair way
+* Update the card pool to include cards up to the "Lightning Overdrive" set to express the impact link monsters have on the various features of the dataset
