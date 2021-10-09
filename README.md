@@ -47,6 +47,11 @@ The training R^2 was super close to the test R^2 and really high. So much so tha
 
 However, there may be some factor that is leaking into my error term that is causing this pattern:
 * It could be "bad data" caused by the approach i took when filling the NA values. By filling all the empty cells with what I deemed to be an "unattainable stat", I naievely skewed the data which may have caused my regression to quite easily predict one of those unattainable values.
+   *  "CAUTION: if you want to use this for Machine Learning / Data Science: from a 
+      Data Science perspective it is wrong to first replace NA and then split into 
+      train and test... You MUST first split into train and test, then replace NA by 
+      mean on train and then apply this stateful preprocessing model to test
+      Aug 28 '19 at 9:18"
 
 * This could also be due to the monster_types not being seperated out. There's a prominent skew towards effect monsters due to the competative metagame relying on effect monsters. Unfortunately I caunt really account for it without completely reforming my data.
 
@@ -57,5 +62,6 @@ I was able to predict attack values with a r-squared of 99.99998675959489%. I at
 ## Future plans
 The following could be applied in the future
 * Finding a different way to fill my NA values that has less impact on the regression itself.
+   * "first split into train and test, then replace NA by mean on train and then apply this stateful preprocessing model to test" ~ Fabian Werner
 * Seperating out the monster_types to distribute the weight of each of the different monster types in a more fair way
 * Update the card pool to include cards up to the "Lightning Overdrive" set to express the impact link monsters have on the various features of the dataset
